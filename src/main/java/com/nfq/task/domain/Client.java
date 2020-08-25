@@ -20,8 +20,8 @@ public class Client {
     @NotNull
     private String lastName;
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm:ss", timezone = "Europe/Vilnius")
-    private Date reservationDate;
+    private String reservationDate;
+    private String reservationCode;
 
     public int getReservationId() {
         return reservationId;
@@ -29,6 +29,14 @@ public class Client {
 
     public void setReservationId(int reservationId) {
         this.reservationId = reservationId;
+    }
+
+    public String getReservationCode() {
+        return reservationCode;
+    }
+
+    public void setReservationCode(String reservationCode) {
+        this.reservationCode = reservationCode;
     }
 
     public String getFirstName() {
@@ -47,11 +55,11 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public Date getReservationDate() {
+    public String getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(Date reservationDate) {
+    public void setReservationDate(String reservationDate) {
         this.reservationDate = reservationDate;
     }
 }

@@ -15,6 +15,12 @@ public class ClientService {
     }
 
     public void createBooking(Client client){
+        client.setReservationCode(generateReservationCode(client));
         clientRepository.save(client);
+    }
+
+    public String generateReservationCode(Client client){
+       String code = String.valueOf(client.getFirstName().charAt(0)) + String.valueOf(client.getLastName().charAt(0)) + String.valueOf(client.getReservationId()) ;
+       return code;
     }
 }

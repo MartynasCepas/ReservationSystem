@@ -5,12 +5,12 @@ import com.nfq.task.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/booking")
-@CrossOrigin
+@Controller
 public class ClientController {
 
     private final ClientService clientService;
@@ -20,11 +20,16 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createBooking(@RequestBody Client client, BindingResult result){
+    @GetMapping("/booking/create")
+    public String createBooking(Model model) {
+        model.addAttribute("client", new Client());
+        return "booking";
+    }
 
+    @PostMapping("/booking/create")
+    public String createBooking(@ModelAttribute Client client, Model model) {
         clientService.createBooking(client);
-
-        return new ResponseEntity<>("Booking was created successfully", HttpStatus.CREATED);
+        model.addAttribute("client", client);
+        return "result";
     }
 }
