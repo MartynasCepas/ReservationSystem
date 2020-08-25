@@ -7,6 +7,7 @@ import com.sun.istack.NotNull;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -61,5 +62,17 @@ public class Client {
 
     public void setReservationDate(String reservationDate) {
         this.reservationDate = reservationDate;
+    }
+
+    public Integer getReservationHours(){
+
+        String[] time = reservationDate.split(":");
+        return Integer.valueOf(time[0]);
+    }
+
+    public Integer getReservationMinutes(){
+
+        String[] time = reservationDate.split(":");
+        return Integer.valueOf(time[1]);
     }
 }
