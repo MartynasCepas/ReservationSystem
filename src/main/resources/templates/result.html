@@ -6,16 +6,16 @@
 </head>
 <body>
 <h1>Result</h1>
-<p th:text="'First Name: ' + ${client.getFirstName()}" />
-<p th:text="'Last Name: ' + ${client.getLastName()}" />
-<p th:text="'Reservation time: ' + ${client.getReservationDate()}" />
-<p th:text="'Reservation code: ' + ${client.getReservationCode()}" />
+<p th:text="'First Name: ' + ${reservation.getFirstName()}" />
+<p th:text="'Last Name: ' + ${reservation.getLastName()}" />
+<p th:text="'Reservation time: ' + ${reservation.getReservationDate()}" />
+<p th:text="'Reservation code: ' + ${reservation.getReservationCode()}" />
 <p id="timer"></p>
 
 <script type="text/javascript">
     // Set the date we're counting down to
-    var countdownHours = [[${client.getReservationHours()}]];
-    var countdownMinutes = [[${client.getReservationMinutes()}]];
+    var countdownHours = [[${reservation.getReservationHours()}]];
+    var countdownMinutes = [[${reservation.getReservationMinutes()}]];
     var countDownDate = new Date();
 
     countDownDate.setHours(countdownHours);

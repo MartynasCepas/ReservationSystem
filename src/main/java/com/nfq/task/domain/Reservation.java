@@ -12,7 +12,7 @@ import java.util.Date;
 
 
 @Entity
-public class Client {
+public class Reservation {
     @Id
     @GeneratedValue
     private int reservationId;

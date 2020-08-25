@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Form</h1>
-<form action="#" th:action="@{/booking/create}" th:object="${client}" method="post">
+<form action="#" th:action="@{/booking/create}" th:object="${reservation}" method="post">
     <p>First Name: <input type="text" th:field="*{firstName}" required/></p>
     <p>Last Name: <input type="text" th:field="*{lastName}"  required/></p>
     <p>Reservation time: <input type="time" th:field="*{reservationDate}"/></p>
