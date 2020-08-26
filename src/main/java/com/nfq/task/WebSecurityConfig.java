@@ -29,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/hello").hasAuthority("ADMIN")
-                .antMatchers("/booking").anonymous()
-                .antMatchers("/login*", "/register", "/booking/*", "/reservation", "/", "/booking/create").permitAll()
+                .antMatchers("/booking", "/h2-console/*", "/h2-console").anonymous()
+                .antMatchers("/login*", "/register", "/booking/*", "/reservation", "/", "/booking/create", "/h2-console/*", "/h2-console").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -44,6 +44,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/perform_logout")
                 .deleteCookies("JSESSIONID");
                 //.logoutSuccessHandler(logoutSuccessHandler());
+
+            http.headers().frameOptions().disable();
+
     }
 
     @Autowired
