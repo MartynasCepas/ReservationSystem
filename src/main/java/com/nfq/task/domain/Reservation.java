@@ -23,6 +23,7 @@ public class Reservation {
     @NotNull
     private String reservationDate;
     private String reservationCode;
+    private Long selectedId;
 
     public int getReservationId() {
         return reservationId;
@@ -62,6 +63,15 @@ public class Reservation {
 
     public void setReservationDate(String reservationDate) {
         this.reservationDate = reservationDate;
+    }
+
+
+    public Long getSelectedId() {
+        return selectedId;
+    }
+
+    public void setSelectedId(Long selectedId) {
+        this.selectedId = selectedId;
     }
 
     public Integer getReservationHours(){
