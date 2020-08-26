@@ -10,6 +10,10 @@
     <p>First Name: <input type="text" th:field="*{firstName}" required/></p>
     <p>Last Name: <input type="text" th:field="*{lastName}"  required/></p>
     <p>Reservation time: <input type="time" th:field="*{reservationDate}"/></p>
+    <select class="form-control" th:field="${allUsers}"  id="users">
+        <option value="0">Select Name</option>
+        <option th:each="operator : ${allUsers}" th:value="${operator.getId()}" th:text="${operator.getName()}"></option>
+    </select>
     <p><input type="submit" value="Submit" /> </p>
 </form>
 </body>
