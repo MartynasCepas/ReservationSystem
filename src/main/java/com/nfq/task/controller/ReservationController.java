@@ -17,7 +17,7 @@ public class ReservationController {
         this.reservationService = reservationService;
     }
 
-    @GetMapping("/booking/create")
+    @GetMapping(value={"/booking/create", "/booking", "/"})
     public String createBooking(Model model) {
         model.addAttribute("reservation", new Reservation());
         return "booking";
