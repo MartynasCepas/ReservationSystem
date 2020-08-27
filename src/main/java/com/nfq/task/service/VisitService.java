@@ -32,7 +32,7 @@ public class VisitService {
         Visit visit = new Visit();
         visit.setReservation(reservation);
         visit.setUser(user);
-        visit.setStatus(VisitStatus.CREATED.getName());
+        visit.setStatus(VisitStatus.CREATED);
         visitRepository.save(visit);
     }
 
@@ -45,5 +45,21 @@ public class VisitService {
         List<Visit> visits = visitRepository.findVisitsByUser(user);
 
         return visits;
+    }
+
+    public void changeVisitStatus(Long id, String newStatus){
+        Visit visit = visitRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(String.valueOf(id)));
+        switch (newStatus) {
+            case "Started":
+                visit.setStatus(VisitStatus.STARTED);
+                break;
+            case "Ended":
+                visit.setStatus(VisitStatus.ENDED);
+                break;
+            case "Cancelled":
+                visit.setStatus(VisitStatus.CANCELLED);
+                break;
+        }
+        visitRepository.save(visit);
     }
 }

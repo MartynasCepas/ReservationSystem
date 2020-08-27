@@ -14,6 +14,9 @@
         <th> Name </th>
         <th> Time </th>
         <th> Status </th>
+        <th> Start </th>
+        <th> End </th>
+        <th> Cancel </th>
     </tr>
     </thead>
     <tbody>
@@ -22,6 +25,16 @@
         <td th:text="${visit.getReservation().getFirstName()}"></td>
         <td th:text="${visit.getReservation().getReservationDate()}"></td>
         <td th:text="${visit.getStatus()}"></td>
+        <td><form action="#" th:action="@{/changeStatus/Started/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
+            <input type="hidden" th:value="${visit.getId()}" /><button type="submit" class="removebutton" name="action" th:value="${visit.getId()}">Start</button>
+        </form></td>
+        <td><form action="#" th:action="@{/changeStatus/Ended/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
+            <input type="hidden" th:value="${visit.getId()}" /><button type="submit" class="removebutton" name="action" th:value="${visit.getId()}">End</button>
+        </form></td>
+        <td><form action="#" th:action="@{/changeStatus/Cancelled/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
+            <input type="hidden" th:value="${visit.getId()}" /><button type="submit" class="removebutton" name="action" th:value="${visit.getId()}">Cancel</button>
+        </form></td>
+
     </tr>
     </tbody>
 </table>

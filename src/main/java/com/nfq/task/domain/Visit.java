@@ -15,7 +15,7 @@ public class Visit
     @ManyToOne
     private User user;
 
-    private String status;
+    private VisitStatus status;
 
     public Long getId() {
         return id;
@@ -41,11 +41,11 @@ public class Visit
         this.user = user;
     }
 
-    public String getStatus() {
+    public VisitStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(VisitStatus status) {
         this.status = status;
     }
 }
