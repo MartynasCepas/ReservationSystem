@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Visits Dashboard</title>
+</head>
+<body>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<h3 th:inline="text">Upcoming visits:</h3>
+<table id="countryList">
+    <thead>
+    <tr>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Time </th>
+        <th> Status </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="visit : ${visits}">
+        <td th:text="${visit.getId()}"></td>
+        <td th:text="${visit.getReservation().getFirstName()}"></td>
+        <td th:text="${visit.getReservation().getReservationDate()}"></td>
+        <td th:text="${visit.getStatus()}"></td>
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

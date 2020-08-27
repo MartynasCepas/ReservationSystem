@@ -7,9 +7,12 @@ import com.nfq.task.domain.VisitStatus;
 import com.nfq.task.repository.UserRepository;
 import com.nfq.task.repository.VisitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,5 +34,16 @@ public class VisitService {
         visit.setUser(user);
         visit.setStatus(VisitStatus.CREATED.getName());
         visitRepository.save(visit);
+    }
+
+    public List<Visit> getVisitsByUser(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = auth.getName();
+        User user = userRepository.findByEmail(currentUserName);
+
+
+        List<Visit> visits = visitRepository.findVisitsByUser(user);
+
+        return visits;
     }
 }
