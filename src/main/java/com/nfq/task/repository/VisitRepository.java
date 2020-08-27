@@ -1,5 +1,6 @@
 package com.nfq.task.repository;
 
+import com.nfq.task.domain.Reservation;
 import com.nfq.task.domain.User;
 import com.nfq.task.domain.Visit;
 import org.springframework.data.repository.CrudRepository;
@@ -10,4 +11,5 @@ import java.util.List;
 @Repository
 public interface VisitRepository extends CrudRepository<Visit, Long> {
     List<Visit> findVisitsByUser(User user);
+    Visit findVisitByReservation(Reservation reservation);
 }

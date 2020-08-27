@@ -36,6 +36,10 @@ public class VisitService {
         visitRepository.save(visit);
     }
 
+    public Visit getVisitByReservation(Reservation reservation){
+        return visitRepository.findVisitByReservation(reservation);
+    }
+
     public List<Visit> getVisitsByUser(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String currentUserName = auth.getName();

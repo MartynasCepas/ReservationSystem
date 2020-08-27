@@ -37,6 +37,14 @@ public class ReservationController {
         return "result";
     }
 
+    @PostMapping("/booking/cancel/{id}")
+    public String cancelBooking(@PathVariable int id){
+        System.out.println(id);
+        visitService.changeVisitStatus(visitService.getVisitByReservation(reservationService.getReservationById(id)).getId(),"Cancelled");
+
+        return "redirect:/booking";
+    }
+
     @ModelAttribute("allUsers")
     public List<User> populateUsers(){
         return reservationService.getAllUsers();

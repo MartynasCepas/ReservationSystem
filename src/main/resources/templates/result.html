@@ -10,6 +10,9 @@
 <p th:text="'Last Name: ' + ${reservation.getLastName()}" />
 <p th:text="'Reservation time: ' + ${reservation.getReservationDate()}" />
 <p th:text="'Reservation code: ' + ${reservation.getReservationCode()}" />
+<form action="#" th:action="@{/booking/cancel/{id}(id=${reservation.getReservationId()})}" method="post">
+    <input type="hidden" th:value="${reservation.getReservationId()}" /><button type="submit" class="removebutton" name="action" th:value="${reservation.getReservationId()}">Cancel Reservation</button>
+</form>
 <p id="timer"></p>
 
 <script type="text/javascript">

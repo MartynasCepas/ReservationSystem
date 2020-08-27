@@ -36,4 +36,8 @@ public class ReservationService {
         ArrayList<User> users = (ArrayList<User>) userRepository.findAll();
         return users;
     }
+
+    public Reservation getReservationById(int id){
+        return reservationRepository.findByReservationId(id);
+    }
 }
