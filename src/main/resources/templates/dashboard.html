@@ -25,13 +25,13 @@
         <td th:text="${visit.getReservation().getFirstName()}"></td>
         <td th:text="${visit.getReservation().getReservationDate()}"></td>
         <td th:text="${visit.getStatus()}"></td>
-        <td><form action="#" th:action="@{/changeStatus/Started/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
+        <td><form action="#" th:if="${visit.getStatus().getName() == 'Created'}" th:action="@{/changeStatus/Started/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
             <input type="hidden" th:value="${visit.getId()}" /><button type="submit" class="removebutton" name="action" th:value="${visit.getId()}">Start</button>
         </form></td>
-        <td><form action="#" th:action="@{/changeStatus/Ended/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
+        <td><form action="#" th:if="${visit.getStatus().getName() == 'Started'}" th:action="@{/changeStatus/Ended/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
             <input type="hidden" th:value="${visit.getId()}" /><button type="submit" class="removebutton" name="action" th:value="${visit.getId()}">End</button>
         </form></td>
-        <td><form action="#" th:action="@{/changeStatus/Cancelled/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
+        <td><form action="#" th:if="${visit.getStatus().getName() != 'Cancelled' && visit.getStatus().getName() != 'Ended'}" th:action="@{/changeStatus/Cancelled/{id}(id=${visit.getId()})}" th:object="${visit}" method="post">
             <input type="hidden" th:value="${visit.getId()}" /><button type="submit" class="removebutton" name="action" th:value="${visit.getId()}">Cancel</button>
         </form></td>
 
