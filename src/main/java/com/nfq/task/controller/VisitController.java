@@ -28,4 +28,10 @@ public class VisitController {
         visitService.changeVisitStatus(id, status);
         return "redirect:/dashboard";
     }
+
+    @GetMapping("/tv")
+    public String showTv(Model model){
+        model.addAttribute("currentVisits", visitService.getCurrentVisits());
+        return "tv";
+    }
 }

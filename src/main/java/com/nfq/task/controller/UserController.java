@@ -17,10 +17,8 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @GetMapping("/login")
     String signIn() {
-
         return "login";
     }
 

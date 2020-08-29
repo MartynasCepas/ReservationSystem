@@ -1,20 +1,29 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>Booking</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Form</h1>
+<div layout:fragment="content" th:remove="tag">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+<h1>Booking form:</h1>
 <form action="#" th:action="@{/booking/create}" th:object="${reservation}" method="post">
-    <p>First Name: <input type="text" th:field="*{firstName}" required/></p>
-    <p>Last Name: <input type="text" th:field="*{lastName}"  required/></p>
-    <p>Reservation time: <input type="time" th:field="*{reservationDate}"/></p>
+    <p>First Name: <input class="form-control" type="text" th:field="*{firstName}" required/></p>
+    <p>Last Name: <input class="form-control" type="text" th:field="*{lastName}"  required/></p>
+    <p>Reservation time: <input class="form-control" type="time" th:field="*{reservationDate}"/></p>
     <select class="form-control" th:field="*{selectedId}" >
         <option value="0">Select Name</option>
         <option th:each="operator : ${allUsers}" th:value="${operator.getId()}" th:text="${operator.getName()}"></option>
     </select>
-    <p><input type="submit" value="Submit" /> </p>
+    <p><input  class="form-control btn btn-info" type="submit" value="Submit" /> </p>
 </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

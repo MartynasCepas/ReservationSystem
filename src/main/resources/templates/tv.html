@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Visits Dashboard</title>
+</head>
+<body>
+<h3 th:inline="text">Current visits:</h3>
+<table id="currentVisitList">
+    <thead>
+    <tr>
+        <th> ID </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="visit : ${currentVisits}">
+        <td th:text="${visit.getId()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h3 th:inline="text">Next Visits:</h3>
+<table id="nextVisitList">
+    <thead>
+    <tr>
+        <th> ID </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="visit : ${nextVisits}">
+        <td th:text="${visit.getId()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -66,4 +66,8 @@ public class VisitService {
         }
         visitRepository.save(visit);
     }
+
+    public List<Visit> getCurrentVisits(){
+        return visitRepository.findVisitsByStatus(VisitStatus.STARTED);
+    }
 }

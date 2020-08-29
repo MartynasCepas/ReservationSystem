@@ -3,16 +3,35 @@
 <head>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Result</h1>
-<p th:text="'First Name: ' + ${reservation.getFirstName()}" />
-<p th:text="'Last Name: ' + ${reservation.getLastName()}" />
-<p th:text="'Reservation time: ' + ${reservation.getReservationDate()}" />
-<p th:text="'Reservation code: ' + ${reservation.getReservationCode()}" />
+<h1>Reservation</h1>
+<table  class="table">
+    <tbody>
+    <tr>
+        <td><strong>First Name:</strong></td>
+        <td><span th:text="${reservation.getFirstName()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Last Name:</strong></td>
+        <td><span th:text="${reservation.getLastName()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Time:</strong></td>
+        <td><span th:text="${reservation.getReservationDate()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Code:</strong></td>
+        <td><span th:text="${reservation.getReservationCode()}"></span></td>
+    </tr>
+    </tbody>
+</table>
 <form action="#" th:action="@{/booking/cancel/{id}(id=${reservation.getReservationId()})}" method="post">
     <input type="hidden" th:value="${reservation.getReservationId()}" /><button type="submit" class="removebutton" name="action" th:value="${reservation.getReservationId()}">Cancel Reservation</button>
 </form>
+
 <p id="timer"></p>
 
 <script type="text/javascript">

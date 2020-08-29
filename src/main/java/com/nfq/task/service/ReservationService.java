@@ -28,7 +28,7 @@ public class ReservationService {
     }
 
     public String generateReservationCode(Reservation reservation){
-       String code = String.valueOf(reservation.getFirstName().charAt(0)) + String.valueOf(reservation.getLastName().charAt(0)) + String.valueOf(reservation.getReservationId()) ;
+       String code = String.valueOf(reservation.getFirstName().charAt(0)) + String.valueOf(reservation.getLastName().charAt(0)) + String.valueOf(reservation.getReservationId()).toUpperCase() ;
        return code;
     }
 
