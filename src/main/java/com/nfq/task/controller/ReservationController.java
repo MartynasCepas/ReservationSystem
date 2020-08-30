@@ -42,7 +42,7 @@ public class ReservationController {
         System.out.println(id);
         visitService.changeVisitStatus(visitService.getVisitByReservation(reservationService.getReservationById(id)).getId(),"Cancelled");
 
-        return "redirect:/booking";
+        return "cancel";
     }
 
     @ModelAttribute("allUsers")

@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface ReservationRepository extends CrudRepository<Reservation, Integer> {
     Reservation findByReservationId(int reservationId);
-    //List<Reservation> findByReservationHoursGreaterThan(Integer reservationHours);
 }
