@@ -6,6 +6,7 @@ This is a project made by me to display my skills.
 
 #### Launch:
 Open the project in Intelj IDEA and click start.\
+Or visit https://nfq-reservation-system.herokuapp.com/ for a hosted version
 
 #### User guide:
 Specialists account has to be registered and logged in. In the dashboard specialist can see visits who are associated with him, also is able to change statuses.\
