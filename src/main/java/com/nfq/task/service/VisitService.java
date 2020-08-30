@@ -52,6 +52,9 @@ public class VisitService {
     }
 
     public void changeVisitStatus(Long id, String newStatus){
+        List<Visit> visits = visitRepository.findVisitsByStatus(VisitStatus.STARTED);
+        if(visits.size() == 0 || visits.get(0).getId() == id)
+        {
         Visit visit = visitRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(String.valueOf(id)));
         switch (newStatus) {
             case "Started":
@@ -65,6 +68,7 @@ public class VisitService {
                 break;
         }
         visitRepository.save(visit);
+        }
     }
 
     public List<Visit> getCurrentVisits(){
