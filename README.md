@@ -27,6 +27,7 @@ Specialist login: http://localhost:8080/login or https://nfq-reservation-system.
 Reservation form: http://localhost:8080/ or https://nfq-reservation-system.herokuapp.com/ \
 Display Board (workds when logged in): http://localhost:8080/tv or https://nfq-reservation-system.herokuapp.com/tv \
 Specialist dashboard: http://localhost:8080/dashboard or https://nfq-reservation-system.herokuapp.com/dashboard 
+H2-Database: http://localhost:8080/h2-console/ or https://nfq-reservation-system.herokuapp.com/h2-console/
 
 ## Class Diagram
 
